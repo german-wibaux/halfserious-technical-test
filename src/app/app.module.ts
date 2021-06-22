@@ -8,20 +8,32 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from '../shared/api/api.service';
+import { StarshipDetailModalComponent } from './components/starship-detail-modal/starship-detail-modal.component';
+import { FormsModule } from '@angular/forms';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { PilotDetailComponent } from './components/pilot-detail/pilot-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SpaceshipsListComponent
+    SpaceshipsListComponent,
+    StarshipDetailModalComponent,
+    PilotDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    MatDialogModule
   ],
-  providers: [ApiService],
-  bootstrap: [AppComponent]
+  providers: [
+    ApiService,
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [StarshipDetailModalComponent]
 })
 export class AppModule { }
