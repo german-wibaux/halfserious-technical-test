@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { ApiService } from 'src/shared/api/api.service';
+import { Starship } from 'src/shared/starships';
 
 @Component({
   selector: 'app-spaceships-list',
@@ -7,9 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpaceshipsListComponent implements OnInit {
 
-  constructor() { }
+  StarshipsData: any = [];
+  dataSource!: MatTableDataSource<Starship>;
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+  displayedColumns: string[] = ['name', 'model', 'manufacturer', 'capacity', 'action'];
 
-  ngOnInit(): void {
+  constructor(private starshipsApi: ApiService) {
+    this.starshipsApi.GetStarships().subscribe(data => {
+      this.StarshipsData = data;
+      this.StarshipsData = this.StarshipsData.results;
+      console.log(this.StarshipsData[0]);
+      this.dataSource = new MatTableDataSource<Starship>(this.StarshipsData);
+      setTimeout(() => {
+        this.dataSource.paginator = this.paginator;
+      }, 0);
+    })    
   }
+
+  ngOnInit() { }
+
 
 }

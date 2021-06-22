@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { SpaceshipsListComponent } from './components/spaceships-list/spaceships-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './material.module';
+import { HttpClientModule } from '@angular/common/http';
+import { ApiService } from '../shared/api/api.service';
 
 @NgModule({
   declarations: [
@@ -16,9 +18,10 @@ import { AngularMaterialModule } from './material.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
