@@ -1,11 +1,29 @@
-<h1 mat-dialog-title>Want to receive our emails?</h1>
+<h1 mat-dialog-title>{{ data.starship.name }}</h1>
 <div mat-dialog-content>
-  <p>What's your email?</p>
-  <mat-form-field>
-    <input matInput [(ngModel)]="data.email">
-  </mat-form-field>
+  <p>Model: {{ data.starship.model }}</p>
+  <p>Manufacturer: {{ data.starship.manufacturer }}</p>
+  <p>Passengers: {{ data.starship.passengers }}</p>
+  <p>Class: {{ data.starship.starship_class }}</p>
+  <p>Max speed: {{ data.starship.max_atmosphering_speed }}</p>
+  <p>Length: {{ data.starship.length }}</p>
+  <p>Cost in credits: {{ data.starship.cost_in_credits }}</p>
+  <h4>Pilots</h4>
+    <mat-form-field appearance="fill">
+    <mat-label>Pilots</mat-label>
+    <select matNativeControl (change)="navigateTo($event)">
+        <option [value]="pilot1">
+            Pilot 1
+        </option>
+        <option [value]="pilot2">
+            Pilot 2
+        </option>
+        <option [value]="pilot3">
+            Pilot 3
+        </option>
+       
+    </select>
+    </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button routerLink="/pilot-detail">Pilot</button>
-  <button mat-button [mat-dialog-close]="data.email" cdkFocusInitial>Close</button>
+  <button mat-button [mat-dialog-close]="data.starship.name" cdkFocusInitial>Close</button>
 </div>

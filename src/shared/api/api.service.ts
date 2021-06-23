@@ -29,35 +29,9 @@ export class ApiService {
     return this.http.get(`${this.endpoint}starships/`);
   }
 
-  // Get student
-//   GetStudent(id): Observable<any> {
-//     let API_URL = `${this.endpoint}/read-student/${id}`;
-//     return this.http.get(API_URL, { headers: this.headers })
-//       .pipe(
-//         map((res: Response) => {
-//           return res || {}
-//         }),
-//         catchError(this.errorMgmt)
-//       )
-//   }
-
-  // Update student
-//   UpdateStudent(id, data): Observable<any> {
-//     let API_URL = `${this.endpoint}/update-student/${id}`;
-//     return this.http.put(API_URL, data, { headers: this.headers })
-//       .pipe(
-//         catchError(this.errorMgmt)
-//       )
-//   }
-
-  // Delete student
-//   DeleteStudent(id): Observable<any> {
-//     var API_URL = `${this.endpoint}/delete-student/${id}`;
-//     return this.http.delete(API_URL)
-//       .pipe(
-//         catchError(this.errorMgmt)
-//       )
-//   }
+  GetPilot() {
+    return this.http.get(`${this.endpoint}people/1/`);
+  }
 
   // Error handling 
   errorMgmt(error: HttpErrorResponse) {

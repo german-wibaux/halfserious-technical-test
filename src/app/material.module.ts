@@ -8,7 +8,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
@@ -41,7 +41,8 @@ import { MatDialogModule } from '@angular/material/dialog';
       MatTooltipModule,
       MatTableModule,
       MatPaginatorModule,
-      MatDialogModule
+      MatDialogModule,
+      BrowserModule
    ],
    exports: [
       MatButtonModule,

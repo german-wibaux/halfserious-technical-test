@@ -37,33 +37,14 @@ export class SpaceshipsListComponent implements OnInit {
   ngOnInit() { }
 
   openDialog(element: undefined): void {
-    // const dialogRef = this.dialog.open(StarshipDetailModalComponent, {
-    //   width: '300px',
-    //   data: {}
-    // });
+    console.log(element);
+    const dialogRef = this.dialog.open(StarshipDetailModalComponent, {
+      data: {starship: element}
+    });
 
-    // dialogRef.afterClosed().subscribe(result => {
-    //   this.email = result;
-    // });
-
-    // const dialogConfig = new MatDialogConfig();
-
-    // dialogConfig.disableClose = true;
-    // dialogConfig.autoFocus = true;
-
-    // dialogConfig.position = {
-    //   'top': '0',
-    //   'left': '0'
-    // };
-
-    // this.dialog.open(StarshipDetailModalComponent, dialogConfig);
-    
-      const dialogRef = this.dialog.open(StarshipDetailModalComponent);
-  
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
-      });
-    console.log(element)
+    dialogRef.afterClosed().subscribe(result => {
+      // console.log(`Dialog result: ${result}`);
+    });
 
 
 
